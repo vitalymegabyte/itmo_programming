@@ -1,5 +1,6 @@
 package PartsOfSpeech;
 
+import exceptions.EmptyDescriptionException;
 import interfaces.*;
 
 public class Noun extends Word implements IActionable, IDescribeable, ISubwordable  {
@@ -54,6 +55,9 @@ public class Noun extends Word implements IActionable, IDescribeable, ISubwordab
     }
 
     public Noun describe(String description) {
+        if(description.isEmpty()) {
+            throw new EmptyDescriptionException("Пустое описание существительного");
+        }
         System.out.print(" ");
         System.out.print(description);
         return this;

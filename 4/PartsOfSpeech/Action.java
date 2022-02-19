@@ -1,4 +1,6 @@
 package PartsOfSpeech;
+import exceptions.EmptyDescriptionException;
+import exceptions.IncorrectTypeException;
 import interfaces.*;
 
 public class Action extends Word implements IDescribeable {
@@ -42,17 +44,20 @@ public class Action extends Word implements IDescribeable {
     }
 
     public IDescribeable describe(String description) {
+        if (description.isEmpty()) {
+            throw new EmptyDescriptionException("Описание пустое!");
+        }
         System.out.print(description);
         return this;
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals (Object obj) throws IncorrectTypeException {
         if (obj instanceof Action) {
             Action action = (Action)obj;
             return action.name_male.equals(this.name_male) && action.name_female.equals(this.name_female);
         } else {
-            return false;
+            throw new IncorrectTypeException("Необходим объект типа Action");
         }
     }
 }

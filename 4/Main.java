@@ -97,7 +97,10 @@ public class Main {
         System.out.print(". ");
         ((IActionable)although.print().subword(lotsOf, NounFormEnum.BASE)).action(say)
             .subword(portrait, thatOn);
-        snezhinka.print().action(turnedOut).describe(" даже лучше, чем в жизни");
+        snezhinka.print().action(turnedOut);
+        new Word() { public Word print() {  
+            System.out.print(" даже лучше, чем в жизни");
+            return this; }}.print();
         System.out.print(",");
         empty.subword(notTrue, butThis);
         System.out.print(".");
@@ -112,7 +115,10 @@ public class Main {
             .subword(beauty))
             .subword(traits, her);
         System.out.print(" и");
-        tubik.action(show).describe("их ярче и выразительнее");
+        tubik.action(show);
+        new Word() { public Word print() {  
+            System.out.print(" их ярче и выразительнее");
+            return this; }}.print();
         System.out.print(", ");
         ((IActionable) ((IDescribeable)then.print()
             .subword(_this2))
